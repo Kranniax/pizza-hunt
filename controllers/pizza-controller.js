@@ -37,7 +37,7 @@ const pizzaController = {
   // original document. By setting the parameter to true, we're instructing
   // Mongoose to return the new version of the document.
   updatePizza({ params, body }, res) {
-    Pizza.findOneandUpdate({ _id: params.id }, body, { new: true })
+    Pizza.findOneAndUpdate({ _id: params.id }, body, { new: true })
       .then((dbPizzaData) => {
         if (!dbPizzaData) {
           res.status(404).json({ message: "No pizza found with this id!" });
@@ -49,7 +49,7 @@ const pizzaController = {
   },
   // delete pizza
   deletePizza({ params }, res) {
-    Pizza.findOneandDelete({ _id: params.id })
+    Pizza.findOneAndDelete({ _id: params.id })
       .then((dbPizzaData) => {
         if (!dbPizzaData) {
           res.status(404).json({ message: "No pizza found with this id!" });
