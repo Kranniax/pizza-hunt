@@ -61,4 +61,11 @@ const pizzaController = {
   },
 };
 
-export { pizzaController };
+export const {
+  getAllPizza,
+  getPizzaById,
+  createPizza,
+  updatePizza,
+  deletePizza,
+} = pizzaController;
+

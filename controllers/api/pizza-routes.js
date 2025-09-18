@@ -5,7 +5,7 @@ import {
   createPizza,
   updatePizza,
   deletePizza,
-} from "../../controllers/pizza-controller.js";
+} from "../pizza-controller.js";
 
 const router = Router();
 // Set up GET all and POST at /api/pizzas
