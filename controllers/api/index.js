@@ -1,6 +1,6 @@
-const router = require("express").Router();
-const pizzaRoutes = require("./pizza-routes");
-
+import { Router } from "express";
+import pizzaRoutes from "./pizza-routes.js";
+const router = Router();
 // add prefix of '/pizzas' to routes created in 'pizza-routes.js'
 router.use("/pizzas", pizzaRoutes);
-module.exports = router;
+export default router;

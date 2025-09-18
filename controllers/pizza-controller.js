@@ -1,4 +1,4 @@
-const { Pizza } = require("../models");
+import { Pizza } from "../models/index.js";
 
 const pizzaController = {
   // get all pizzas
@@ -61,4 +61,4 @@ const pizzaController = {
   },
 };
 
-module.exports = pizzaController;
+export { pizzaController };

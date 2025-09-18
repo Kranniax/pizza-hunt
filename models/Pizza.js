@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+import { Schema, model } from "mongoose";
 
 const PizzaSchema = new Schema({
   pizzaName: {
@@ -22,4 +22,4 @@ const PizzaSchema = new Schema({
 const Pizza = model('Pizza', PizzaSchema);
 
 // export the Pizza model
-module.exports = Pizza;
+export default Pizza;

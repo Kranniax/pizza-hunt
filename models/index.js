@@ -1,3 +1,3 @@
-const Pizza = require("./Pizza");
+import Pizza from "./Pizza.js";
 
-module.exports = { Pizza };
+export { Pizza };
