@@ -1,25 +1,39 @@
 import { Schema, model } from "mongoose";
 
-const PizzaSchema = new Schema({
-  pizzaName: {
-    type: String,
+const PizzaSchema = new Schema(
+  {
+    pizzaName: {
+      type: String,
+    },
+    createdBy: {
+      type: String,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
+    size: {
+      type: String,
+      default: "Large",
+    },
+    toppings: [],
+    comments: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Comment",
+      },
+    ],
   },
-  createdBy: {
-    type: String,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-  size: {
-    type: String,
-    default: "Large",
-  },
-  toppings: [],
-});
+  {
+    toJSON: {
+      virtuals: true,
+    },
+    id: false,
+  }
+);
 
-// create the Pizza model using the PizzaSchema 
-const Pizza = model('Pizza', PizzaSchema);
+// create the Pizza model using the PizzaSchema
+const Pizza = model("Pizza", PizzaSchema);
 
 // export the Pizza model
-export default Pizza;
+export { Pizza };

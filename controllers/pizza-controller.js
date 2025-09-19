@@ -67,5 +67,5 @@ export const {
   createPizza,
   updatePizza,
   deletePizza,
-} = pizzaController;
+} = pizzaController
 

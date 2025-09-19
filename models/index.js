@@ -1,3 +1,4 @@
-import Pizza from "./Pizza.js";
+import { Pizza } from "./Pizza.js";
+import { Comment } from "./Comment.js";
 
-export { Pizza };
+export { Pizza, Comment };
