@@ -1,6 +1,6 @@
 import { Router } from "express";
 // Import all of the api routes
-import apiRoutes from "../controllers/api/index.js";
+import apiRoutes from "./api/index.js";
 import htmlRoutes from "./html/html-routes.js";
 const router = Router();
 
