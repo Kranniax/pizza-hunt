@@ -1,16 +1,58 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, Types } from "mongoose";
+import dateFormat from "../utils/dateFormat.js";
 
-const CommentSchema = new Schema({
-  writtenBy: {
-    type: String,
+const ReplySchema = new Schema(
+  {
+    // set custom id to avoid confusion with parent comment _id
+    replyId: {
+      type: Schema.Types.ObjectId,
+      default: () => new Types.ObjectId(),
+    },
+    replyBody: {
+      type: String,
+    },
+    writtenBy: {
+      type: String,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: (createdAtVal) => dateFormat(createdAtVal),
+    },
   },
-  commentBody: {
-    type: String,
+  {
+    toJSON: {
+      getters: true,
+    },
+  }
+);
+
+const CommentSchema = new Schema(
+  {
+    writtenBy: {
+      type: String,
+    },
+    commentBody: {
+      type: String,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: (createdAtVal) => dateFormat(createdAtVal),
+    },
+    replies: [ReplySchema],
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+  {
+    toJSON: {
+      virtuals:true,
+      getters: true,
+    },
+  }
+);
+
+// get total count of replies 
+CommentSchema.virtual("replyCount").get(function () {
+  return this.replies.length;
 });
 
 const Comment = model("Comment", CommentSchema);
