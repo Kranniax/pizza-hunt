@@ -13,7 +13,7 @@ const pizzaController = {
       .then((dbPizzaData) => res.json(dbPizzaData))
       .catch((err) => {
         console.log(err);
-        res.status(400).json(err);
+        res.status(500).json(err);
       });
   },
   // get one pizza by id
@@ -34,7 +34,7 @@ const pizzaController = {
       })
       .catch((err) => {
         console.log(err);
-        res.status(400).json(err);
+        res.status(500).json(err);
       });
   },
   // create Pizza
@@ -59,7 +59,7 @@ const pizzaController = {
         }
         res.json(dbPizzaData);
       })
-      .catch((err) => res.status(400).json(err));
+      .catch((err) => res.status(500).json(err));
   },
   // delete pizza
   deletePizza({ params }, res) {
@@ -71,7 +71,7 @@ const pizzaController = {
         }
         res.json(dbPizzaData);
       })
-      .catch((err) => res.status(400).json(err));
+      .catch((err) => res.status(500).json(err));
   },
 };
 
